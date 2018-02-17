@@ -86,6 +86,12 @@ $app->get('/report/{id}',function($request,$respond,$args)use($db){
     
 });
 
+$app->get('/report/{imgname}',function($request,$respond,$args){
+    header("content-type: image/your_image_type");
+    echo file_get_contents($args['imgname']);
+    
+});
+
 $app->run();
 
 ?>
