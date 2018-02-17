@@ -135,7 +135,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <label for="">Team Table Number <req>*</req></label>
-                            <input id="f6" type="text" class="form-control" name="tableID" placeholder="Your Team Table Number">
+                            <input id="f6" type="tel" maxlength="2" class="form-control" name="tableID" placeholder="Your Team Table Number">
                         </div>
                         <div class="col-sm-12 col-lg-12">
                             <label for="">Your Project Description <req>*</req></label>
@@ -181,12 +181,18 @@
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    obj.attr('src', e.target.result);
+                var fileTypes = ['jpg', 'jpeg', 'png'];
+                var extension = input.files[0].name.split('.').pop().toLowerCase(), //file extension from input file
+                    isSuccess = fileTypes.indexOf(extension) > -1;
+                if (isSuccess) {
+                    reader.onload = function(e) {
+                        obj.attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    input.val('');
                 }
 
-                reader.readAsDataURL(input.files[0]);
             }
         }
 
