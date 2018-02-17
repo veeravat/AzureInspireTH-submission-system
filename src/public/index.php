@@ -47,7 +47,7 @@ $app->post('/save',function($request,$respond,$args)use($db){
        array_push($filename,$fname);
     }
     // getUploadedFiles
-    $db->query("INSERT INTO geekathon(teamName,repreName,projName, role, azureService, proposal, tableID, img1, img2, img3) VALUES(?,?,?,?,?,?,?,?,?,?)", array($textdata['teamName'],$textdata['repreName'],$textdata['projName'],$textdata['role'],$textdata['azureService'],$textdata['proposal'],$textdata['tableID'],$filename[0],$filename[1],$filename[2]));//Parameters must be ordered
+    $db->query("INSERT INTO geekathon(teamName,repreName,projName, role, azureService, proposal, tableID, img1, img2, img3) VALUES(?,?,?,?,?,?,?,?,?,?)", array($textdata['teamName'],$textdata['repreName'],$textdata['projName'],$textdata['role'],$textdata['azureService'],nl2br($textdata['proposal']),$textdata['tableID'],$filename[0],$filename[1],$filename[2]));//Parameters must be ordered
 
     return $respond->withStatus(302)->withHeader('Location', '/thankyou');
 });
