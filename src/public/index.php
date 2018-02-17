@@ -62,10 +62,10 @@ $app->get('/tuymoveisadmin',function($request,$respond,$args){
 });
 
 $app->get('/report',function($request,$respond,$args)use($db){
-    $data = $DB->query("SELECT * FROM geekathon ");
+    $data = $db->query("SELECT * FROM geekathon ");
     if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
         return $this->view->render($respond,'report.html',[
-            'Data' => $data
+            'data' => $data
         ]);
     }else{
         return $respond->withStatus(302)->withHeader('Location', '/');
