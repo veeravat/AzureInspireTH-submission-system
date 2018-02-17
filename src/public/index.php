@@ -78,7 +78,7 @@ $app->get('/report/{id}',function($request,$respond,$args)use($db){
     $data = $db->single("SELECT * FROM geekathon WHERE recordID = ?",array($args['id']));
     if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
         return $this->view->render($respond,'report-item.html',[
-            'datas' => $data
+            'data' => $data
         ]);
     }else{
         return $respond->withStatus(302)->withHeader('Location', '/');
