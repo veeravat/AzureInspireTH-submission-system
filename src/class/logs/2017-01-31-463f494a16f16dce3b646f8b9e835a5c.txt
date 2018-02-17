@@ -1,0 +1,14 @@
+Time : 10:35:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : UPDATE user_info SET firstname='tuymove' , lastname='eeee' WHERE us_id=
+
+Time : 10:34:15
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'lastname='jeensuksang' WHERE us_id=1' at line 1
+Raw SQL : UPDATE user_info SET firstname='veeravat2 ' lastname='jeensuksang' WHERE us_id=1
+
+Time : 10:33:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'lastname='jeensuksang' WHERE us_id=1' at line 1
+Raw SQL : UPDATE user_info SET firstname='veeravat2' lastname='jeensuksang' WHERE us_id=1
+
+Time : 08:56:51
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit your project</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+        .mainform {
+            margin-top: 5em;
+            padding: 3em;
+            background-color: #fff;
+            margin-bottom: 5em;
+        }
+        
+        .shadowBox {
+            position: relative;
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        }
+        
+        .shadowBox:before,
+        .shadowBox:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            right: 10px;
+            -moz-border-radius: 100px / 10px;
+            border-radius: 100px / 10px;
+        }
+        
+        .shadowBox:after {
+            right: 10px;
+            left: auto;
+            -webkit-transform: skew(8deg) rotate(3deg);
+            -moz-transform: skew(8deg) rotate(3deg);
+            -ms-transform: skew(8deg) rotate(3deg);
+            -o-transform: skew(8deg) rotate(3deg);
+            transform: skew(8deg) rotate(3deg);
+        }
+        
+        .selectform {
+            width: 100%
+        }
+        
+        .inpfile {
+            height: 3em
+        }
+        
+        req {
+            color: red
+        }
+        
+        .mainPanel {
+            /* background-image: url("img/bg.jpg"); */
+            background-color: rgb(64, 129, 248);
+        }
+        
+        .uploadimg {
+            width: 100%;
+            max-height: 250px;
+        }
+        
+        .passBox {
+            border-color: rgba(126, 239, 104, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+            outline: 0 none;
+        }
+        
+        .emptyBox {
+            border-color: rgba(150, 6, 6, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 17, 17, 0.6);
+            outline: 0 none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid mainPanel">
+        <div class="col-sm-1 col-lg-2 ">
+
+        </div>
+
+        <div class="col-sm-12 col-lg-8 mainform shadowBox">
+            <form action="/save" id="inputForm" method="POST" role="form" enctype="multipart/form-data">
+                <legend>Submit your Geek-a-Thon project</legend>
+
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">Team Name <req>*</req></label>
+                            <input id="f1" type="text" class="form-control" name="teamName" placeholder="Your Team Name">
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">Representative Name <req>*</req></label>
+                            <input id="f2" type="text" class="form-control" name="repreName" placeholder="Representative Name">
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">Project Name <req>*</req></label>
+                            <input id="f3" type="text" class="form-control" name="projName" placeholder="Your Project Name">
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">Industry Role <req>*</req></label>
+                            <select name="role" id="f4" class="selectform form-control" placeholder="Industry Role">
+                            <option value="" selected disabled>Please select Industry Role</option>
+                            <option value="1">Energy</option>
+                            <option value="2">Health</option>
+                            <option value="3">Education</option>
+                            <option value="4">Tourism</option>
+                            <option value="5">Agriculture</option>
+                        </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">What azure services do you use in your project? <req>*</req></label>
+                            <input id="f5" type="text" class="form-control" name="azureService" placeholder="Your azure service name">
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="">Table Number <req>*</req></label>
+                            <input id="f6" type="text" class="form-control" name="azureService" placeholder="Your team table number">
+                        </div>
+                        <div class="col-sm-12 col-lg-12">
+                            <label for="">Your project proposal <req>*</req></label>
+                            <textarea name="proposal" id="f6" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-12">
+                            <label for="">Upload your prototype images <req>*</req></label>
+                        </div>
+                        <div class="col-sm-12 col-lg-12">
+
+                            <div class="col-sm-12 col-lg-4">
+                                <input type="file" class="form-control inpfile" id="img1" name="img1" alt="Your Team Name">
+                                <img id="prev1" src="http://via.placeholder.com/500?text=PrototypeImage" class="uploadimg" />
+
+                            </div>
+                            <div class="col-sm-12 col-lg-4">
+                                <input type="file" class="form-control inpfile" id="img2" name="img2" placeholder="Your Team Name">
+                                <img id="prev2" src="http://via.placeholder.com/500?text=PrototypeImage" class="uploadimg" />
+                            </div>
+                            <div class="col-sm-12 col-lg-4">
+                                <input type="file" class="form-control inpfile" id="img3" name="img3" placeholder="Your Team Name">
+                                <img id="prev3" src="http://via.placeholder.com/500?text=PrototypeImage" class="uploadimg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-12">
+                    <hr>
+                    <button type="button" onclick="validate();" class="btn btn-primary btn-large btn-block">ยืนยันส่งข้อมูล</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-1 col-lg-2">
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function readURL(input, obj) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    obj.attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#img1").change(function() {
+            readURL(this, $('#prev1'))
+        });
+        $("#img2").change(function() {
+            readURL(this, $('#prev2'))
+        });
+        $("#img3").change(function() {
+            readURL(this, $('#prev3'))
+        });
+        $('[id^="f"]').on("click", function() {
+            $(this).removeClass('emptyBox')
+            $(this).removeClass('passBox')
+        });
+
+        function validate() {
+            var cnt = 0;
+
+            $('[id^="img"]').each(function(num, e) {
+                if (e.files.length) {
+                    $(e).addClass('passBox')
+                    $(e).removeClass('emptyBox')
+                    cnt++;
+                } else {
+                    $(e).addClass('emptyBox')
+                    $(e).removeClass('passBox')
+                    cnt = 0;
+                }
+            })
+            $('[id^="f"]').each(function(num, e) {
+                if (e.value.length) {
+
+                    $(e).addClass('passBox')
+                    $(e).removeClass('emptyBox')
+                    cnt++;
+                } else {
+                    $(e).addClass('emptyBox')
+                    $(e).removeClass('passBox')
+                    cnt = 0;
+                }
+            })
+            if (cnt === ($('[id^="f"]').length + $('[id^="img"]').length)) {
+                console.log("OK");
+                $('#inputForm').submit();
+            }
+
+        }
+    </script>
+</body>
+
+</html>

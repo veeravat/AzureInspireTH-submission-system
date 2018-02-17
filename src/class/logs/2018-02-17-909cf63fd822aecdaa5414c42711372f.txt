@@ -1,0 +1,17 @@
+Time : 18:55:00
+SQLSTATE[HY000] [1049] Unknown database 'srvnv'
+
+Time : 18:54:45
+SQLSTATE[HY000] [9000] Client with IP address '161.200.189.236' is not allowed to connect to this MySQL server.
+
+Time : 18:54:28
+SQLSTATE[HY000] [9000] Client with IP address '161.200.189.236' is not allowed to connect to this MySQL server.
+
+Time : 18:54:26
+SQLSTATE[HY000] [9000] Client with IP address '161.200.189.236' is not allowed to connect to this MySQL server.
+
+Time : 18:54:25
+SQLSTATE[HY000] [9000] Client with IP address '161.200.189.236' is not allowed to connect to this MySQL server.
+
+Time : 18:53:59
+SQLSTATE[HY000] [9000] Client with IP address '161.200.189.236' is not allowed to connect to this MySQL server.
