@@ -1,4 +1,5 @@
 <?php
+session_start();
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -30,10 +31,7 @@ $container['view'] = function ($container) {
 
 
 $app->get('/',function($request,$respond,$args){
-    
-    return $this->view->render($respond,'form.html',[
-        
-    ]);
+    return $this->view->render($respond,'form.html',[]);
 });
 
 $app->post('/save',function($request,$respond,$args)use($db){
@@ -50,11 +48,30 @@ $app->post('/save',function($request,$respond,$args)use($db){
     // getUploadedFiles
     $db->query("INSERT INTO geekathon(teamName,repreName,projName, role, azureService, proposal, tableID, img1, img2, img3) VALUES(?,?,?,?,?,?,?,?,?,?)", array($textdata['teamName'],$textdata['repreName'],$textdata['projName'],$textdata['role'],$textdata['azureService'],$textdata['proposal'],$textdata['tableID'],$filename[0],$filename[1],$filename[2]));//Parameters must be ordered
 
-    
+    return $respond->withStatus(302)->withHeader('Location', '/thankyou');
 });
 
 
+$app->get('/thankyou',function($request,$respond,$args){
+    return $this->view->render($respond,'thank.html',[]);
+});
 
+$app->get('/tuymoveisadmin',function($request,$respond,$args){
+    $_SESSION['admin']= md5('ok');
+    return $respond->withStatus(302)->withHeader('Location', '/report');
+});
+
+$app->get('/report',function($request,$respond,$args)use($db){
+    $data = $DB->query("SELECT * FROM geekathon ");
+    if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
+        return $this->view->render($respond,'report.html',[
+            'Data' => $data
+        ]);
+    }else{
+        return $respond->withStatus(302)->withHeader('Location', '/');
+    }
+    
+});
 
 $app->run();
 
