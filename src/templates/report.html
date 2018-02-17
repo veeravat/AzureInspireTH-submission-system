@@ -123,7 +123,7 @@
                             <td>{{data.teamName}}</td>
                             <td>{{data.projName}}</td>
                             <td>
-                                {% if data.role == 1 %} Energy {% else if data.role == 2 %} Health {% else if data.role == 3 %} Education {% else if data.role == 4 %} Tourism {% else if data.role == 5 %} Agriculture {% endif %}
+                                {% if data.role == 1 %} Energy {% elseif data.role == 2 %} Health {% elseif data.role == 3 %} Education {% elseif data.role == 4 %} Tourism {% elseif data.role == 5 %} Agriculture {% endif %}
                             </td>
                             <td>{{data.recordID}}</td>
                         </tr>
