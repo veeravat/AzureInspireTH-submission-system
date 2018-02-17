@@ -5,11 +5,12 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../../vendor/autoload.php';
 require 'common.php';
+// $db = "";
 $app = new \Slim\App;
 
 
 
-// $db = "";
+
 
 // Get container
 $container = $app->getContainer();
@@ -62,9 +63,21 @@ $app->get('/tuymoveisadmin',function($request,$respond,$args){
 });
 
 $app->get('/report',function($request,$respond,$args)use($db){
-    $data = $db->query("SELECT * FROM geekathon ");
+    $data = $db->query("SELECT * FROM geekathon ORDER by tableID,recordID");
     if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
         return $this->view->render($respond,'report.html',[
+            'datas' => $data
+        ]);
+    }else{
+        return $respond->withStatus(302)->withHeader('Location', '/');
+    }
+    
+});
+
+$app->get('/report/{id}',function($request,$respond,$args)use($db){
+    $data = $db->single("SELECT * FROM geekathon WHERE recordID = ?",array($args['name']));
+    if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
+        return $this->view->render($respond,'report-item.html',[
             'datas' => $data
         ]);
     }else{

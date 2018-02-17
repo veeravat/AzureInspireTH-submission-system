@@ -101,40 +101,24 @@
 <body>
 
     <div class="container-fluid mainPanel">
-        <div class="col-sm-1 col-lg-2 "> </div>
+        <div class="col-sm-1 col-lg-1 "> </div>
 
-        <div class="col-sm-12 col-lg-8 mainform shadowBox">
+        <div class="col-sm-12 col-lg-10 mainform shadowBox">
 
-            <div class="table-responsive table-strip">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Table</th>
-                            <th>Team name</th>
-                            <th>Project Name</th>
-                            <th>Role</th>
-                            <th>Print</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for data in datas %}
-                        <tr>
-                            <td>{{data.tableID}}</td>
-                            <td>{{data.teamName}}</td>
-                            <td>{{data.projName}}</td>
-                            <td>
-                                {% if data.role == 1 %} Energy {% elseif data.role == 2 %} Health {% elseif data.role == 3 %} Education {% elseif data.role == 4 %} Tourism {% elseif data.role == 5 %} Agriculture {% endif %}
-                            </td>
-                            <td>{{data.recordID}}</td>
-                        </tr>
-                        {% endfor %}
-
-                    </tbody>
-                </table>
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Team : {{data.teamName}}</h1>
+                    <p> {% if data.role == 1 %} Energy {% elseif data.role == 2 %} Health {% elseif data.role == 3 %} Education {% elseif data.role == 4 %} Tourism {% elseif data.role == 5 %} Agriculture {% endif %} : {{data.projName}}</p>
+                    <p>Using : {{data.azureService}}</p>
+                    <p>
+                        {{data.proposal}}
+                    </p>
+                </div>
             </div>
 
+
         </div>
-        <div class="col-sm-1 col-lg-2"> </div>
+        <div class="col-sm-1 col-lg-1"> </div>
     </div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
