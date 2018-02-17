@@ -117,9 +117,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for data in datas %}
                         <tr>
-                            <td></td>
+                            <td>{{data.tableID}}</td>
+                            <td>{{data.teamName}}</td>
+                            <td>{{data.projName}}</td>
+                            <td>{{data.role}}</td>
+                            <td>{{data.recordID}}</td>
                         </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>

@@ -65,7 +65,7 @@ $app->get('/report',function($request,$respond,$args)use($db){
     $data = $db->query("SELECT * FROM geekathon ");
     if(isset($_SESSION['admin'])&& $_SESSION['admin'] == md5('ok')){
         return $this->view->render($respond,'report.html',[
-            'data' => $data
+            'datas' => $data
         ]);
     }else{
         return $respond->withStatus(302)->withHeader('Location', '/');
