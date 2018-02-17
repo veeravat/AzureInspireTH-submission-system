@@ -1,0 +1,2 @@
+Time : 20:51:01
+SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
