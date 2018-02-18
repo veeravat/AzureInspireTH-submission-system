@@ -32,11 +32,12 @@ $container['view'] = function ($container) {
 
 
 $app->get('/',function($request,$respond,$args){
+    // return $respond->withStatus(302)->withHeader('Location', '/closed');
     return $this->view->render($respond,'form.html',[]);
 });
 
 $app->post('/save',function($request,$respond,$args)use($db){
-    echo "<pre>";
+    // return $respond->withStatus(302)->withHeader('Location', '/closed');
     $textdata = ($request->getParsedBody());
     $uploadFile = ($request->getUploadedFiles());
     $filename = array();
@@ -55,6 +56,10 @@ $app->post('/save',function($request,$respond,$args)use($db){
 
 $app->get('/thankyou',function($request,$respond,$args){
     return $this->view->render($respond,'thank.html',[]);
+});
+
+$app->get('/closed',function($request,$respond,$args){
+    return $this->view->render($respond,'closed.html',[]);
 });
 
 $app->get('/tuymoveisadmin',function($request,$respond,$args){
