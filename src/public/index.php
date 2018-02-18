@@ -32,12 +32,12 @@ $container['view'] = function ($container) {
 
 
 $app->get('/',function($request,$respond,$args){
-    return $respond->withStatus(302)->withHeader('Location', '/closed');
+    
     return $this->view->render($respond,'form.html',[]);
 });
 
 $app->post('/save',function($request,$respond,$args)use($db){
-    return $respond->withStatus(302)->withHeader('Location', '/closed');
+    
     $textdata = ($request->getParsedBody());
     $uploadFile = ($request->getUploadedFiles());
     $filename = array();
